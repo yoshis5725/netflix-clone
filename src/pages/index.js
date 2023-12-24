@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import Banner from "@/components/banner/Banner";
+import Navbar from "@/components/navbar/Navbar";
+import Card from "@/components/card/Card";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -15,11 +17,15 @@ export default function Home() {
             </Head>
             <main>
                 <h2>Netflix</h2>
+                <Navbar username='elliottpolite@gmail.com'/>
                 <Banner
                     title="NETFLIX ORIGINAL SERIES"
                     subtitle="Stranger Things"
                     imgUrl="/static/genericImage.jpg"
                 />
+                <Card imgUrl='/static/genericImage.jpg' size='small' />
+                <Card imgUrl='/static/genericImage.jpg' size='medium' />
+                <Card imgUrl='/static/genericImage.jpg' size='large' />
 
             </main>
         </>
