@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './card-section.module.css';
 import Card from "@/components/card/Card";
-import Link from "next/link";
 
 
 const CardSection = (props) => {
