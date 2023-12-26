@@ -3,10 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/login.module.css";
 import Image from "next/image";
+import {useRouter} from "next/router";
 
 const Login = () => {
     const [email, setEmail] = React.useState('');
     const [userMsg, setUserMsg] = React.useState('');
+    const router = useRouter();
 
 
     const resetUserMsg = () => {
@@ -22,10 +24,19 @@ const Login = () => {
 
     const handleEmailLogin = (event) => {
         event.preventDefault();
-        if (email === '') {
-            setUserMsg('Please enter your email address');
+
+        if (email) {
+            // TODO: replace with actual db call
+            if (email === 'elliottpolite@gmail.com') {
+                router.push('/')
+            } else {
+                setUserMsg('Something went wrong. Please try again.');
+            }
+        } else {
+            setUserMsg('Please enter an email address.');
         }
     };
+
 
 
     return (
@@ -48,7 +59,8 @@ const Login = () => {
             <main className={styles.main}>
                 <div className={styles.mainWrapper}>
                     <h1 className={styles.signinHeader}>Sign In</h1>
-                    <input className={styles.emailInput} onChange={handleEmailInputChange} type="text" placeholder='Email Address'/>
+                    <input className={styles.emailInput} onChange={handleEmailInputChange} type="text"
+                           placeholder='Email Address'/>
                     <p className={styles.userMsg}>
                         {userMsg}
                     </p>
